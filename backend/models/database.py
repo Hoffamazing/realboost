@@ -93,8 +93,8 @@ class Agent(Base):
     # Stripe
     stripe_customer_id = Column(String(255), unique=True)
     stripe_subscription_id = Column(String(255), unique=True)
-    subscription_plan = Column(Enum(SubscriptionPlan), default=SubscriptionPlan.starter)
-    subscription_status = Column(Enum(SubscriptionStatus), default=SubscriptionStatus.trialing)
+subscription_plan = Column(Enum(SubscriptionPlan), default=SubscriptionPlan.tier1)
+subscription_status = Column(Enum(SubscriptionStatus), default=SubscriptionStatus.trialing)
     trial_ends_at = Column(DateTime)
     subscription_ends_at = Column(DateTime)
 
