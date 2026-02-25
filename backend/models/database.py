@@ -61,11 +61,16 @@ class MessageRole(str, enum.Enum):
     system = "system"
 
 class SubscriptionPlan(str, enum.Enum):
+    # Legacy plans (keep for existing data)
+    starter = "starter"
+    pro = "pro"
+    team = "team"
+    # New premium tiers
     tier1 = "tier1"      # $1,000/mo
     tier2 = "tier2"      # $2,500/mo
     tier3 = "tier3"      # $5,000/mo
     tier4 = "tier4"      # $15,000/mo
-
+    
 class SubscriptionStatus(str, enum.Enum):
     active = "active"
     past_due = "past_due"
