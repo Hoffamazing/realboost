@@ -28,54 +28,80 @@ STRIPE_WEBHOOK_SECRET = os.getenv("STRIPE_WEBHOOK_SECRET")
 
 # ── PRICING TIERS ─────────────────────────────────────────────────────────────
 PLANS = {
-    "starter": {
-        "name": "Starter",
-        "price_id": os.getenv("STRIPE_STARTER_PRICE_ID", "price_starter"),
-        "amount": 9900,       # $99/mo in cents
-        "description": "1 agent · 2 ad platforms · AI chat · Basic drip",
+    "tier1": {
+        "name": "Tier 1 - Growth",
+        "price_id": os.getenv("STRIPE_TIER1_PRICE_ID", "price_tier1"),
+        "amount": 100000,  # $1,000/mo in cents
+        "description": "Essential automation for growing teams",
         "features": [
-            "Up to 200 leads/month",
-            "Meta + Google Ads",
-            "AI lead qualification",
-            "3 drip campaigns",
-            "Hot lead SMS alerts",
+            "Up to 1,000 leads/month",
+            "All 4 ad platforms (Meta, Google, TikTok, Waze)",
+            "AI lead qualification & scoring",
+            "5 automated drip campaigns",
+            "Hot lead SMS + email alerts",
+            "Basic AI email generator",
+            "Monthly market newsletter",
+            "Standard support",
         ],
     },
-    "pro": {
-        "name": "Pro",
-        "price_id": os.getenv("STRIPE_PRO_PRICE_ID", "price_pro"),
-        "amount": 24900,      # $249/mo in cents
-        "description": "1 agent · All 4 platforms · Full AI suite · Unlimited campaigns",
+    "tier2": {
+        "name": "Tier 2 - Scale",
+        "price_id": os.getenv("STRIPE_TIER2_PRICE_ID", "price_tier2"),
+        "amount": 250000,  # $2,500/mo in cents
+        "description": "Advanced automation for scaling operations",
+        "features": [
+            "Up to 5,000 leads/month",
+            "Everything in Tier 1",
+            "Unlimited drip campaigns",
+            "Advanced AI email generator",
+            "AI ad budget optimization",
+            "Birthday & anniversary automation",
+            "Hot lead instant call connect",
+            "CRM integration (Salesforce, HubSpot)",
+            "Priority support",
+        ],
+    },
+    "tier3": {
+        "name": "Tier 3 - Enterprise",
+        "price_id": os.getenv("STRIPE_TIER3_PRICE_ID", "price_tier3"),
+        "amount": 500000,  # $5,000/mo in cents
+        "description": "Full-featured enterprise solution",
         "features": [
             "Unlimited leads",
-            "Meta + Google + TikTok + Waze",
-            "AI lead qualification",
-            "Unlimited drip campaigns",
-            "AI email generator",
-            "Hot lead call connect",
-            "Monthly newsletter AI",
-            "Birthday automation",
-            "Ad budget optimization",
+            "Everything in Tier 2",
+            "Up to 10 team members",
+            "Team lead routing & assignment",
+            "Custom AI persona & voice",
+            "Advanced analytics dashboard",
+            "Multi-location support",
+            "White-label options available",
+            "Dedicated account manager",
+            "Custom integrations",
         ],
     },
-    "team": {
-        "name": "Team",
-        "price_id": os.getenv("STRIPE_TEAM_PRICE_ID", "price_team"),
-        "amount": 49900,      # $499/mo in cents
-        "description": "Up to 5 agents · All features · Team dashboard + reporting",
+    "tier4": {
+        "name": "Tier 4 - Elite",
+        "price_id": os.getenv("STRIPE_TIER4_PRICE_ID", "price_tier4"),
+        "amount": 1500000,  # $15,000/mo in cents
+        "description": "Full-service managed marketing solution",
         "features": [
-            "Everything in Pro",
-            "Up to 5 agents",
-            "Team lead routing",
-            "Shared campaign library",
-            "Team performance dashboard",
-            "Priority support",
-            "Custom AI persona",
+            "Unlimited everything",
+            "Everything in Tier 3",
+            "Unlimited team members",
+            "Dedicated marketing strategist",
+            "Custom ad creative design (monthly)",
+            "A/B testing & optimization",
+            "Competitor analysis reports",
+            "Market research & insights",
+            "Quarterly strategy sessions",
+            "API access for custom builds",
+            "24/7 white-glove support",
+            "Custom contract terms available",
+            "Life Coaching from Danny Diaz of Peak Life Now",
+            "Sales Coaching from Justin Michael 7x Author and the pioneer of outbound sales"
         ],
     },
 }
-
-
 # ── SCHEMAS ───────────────────────────────────────────────────────────────────
 
 class CheckoutRequest(BaseModel):
