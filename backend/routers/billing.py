@@ -295,10 +295,17 @@ async def _handle_subscription_updated(subscription: dict, db: AsyncSession):
     agent.stripe_subscription_id = subscription.get("id")
 
     # Determine plan from metadata or price ID
-    metadata = subscription.get("metadata", {})
-    plan_name = metadata.get("plan", "pro")
-    plan_map = {"starter": SubscriptionPlan.starter, "pro": SubscriptionPlan.pro, "team": SubscriptionPlan.team}
-    agent.subscription_plan = plan_map.get(plan_name, SubscriptionPlan.pro)
+metadata = subscription.get("metadata", {})
+plan_name = metadata.get("plan", "tier1")
+plan_map = {
+    "starter": SubscriptionPlan.starter,
+    "pro": SubscriptionPlan.pro,
+    "team": SubscriptionPlan.team,
+    "tier1": SubscriptionPlan.tier1,
+    "tier2": SubscriptionPlan.tier2,
+    "tier3": SubscriptionPlan.tier3,
+    "tier4": SubscriptionPlan.tier4,
+}
 
     # Set subscription end date
     current_period_end = subscription.get("current_period_end")
