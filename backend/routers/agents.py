@@ -81,7 +81,7 @@ async def register(data: AgentRegister, db: AsyncSession = Depends(get_db)):
         phone=data.phone,
         brokerage=data.brokerage,
         location=data.location,
-        subscription_plan=SubscriptionPlan.starter,
+subscription_plan=SubscriptionPlan.tier1,
         subscription_status=SubscriptionStatus.trialing,
         trial_ends_at=datetime.utcnow() + timedelta(days=14),
     )
