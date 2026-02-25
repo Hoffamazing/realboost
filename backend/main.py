@@ -66,7 +66,7 @@ app.add_middleware(
 
 @app.get("/health")
 async def health():
-    return {"status": "healthy", "service": "realboost-api", "version": "1.0.0"}
+return {"status": "healthy", "service": "reagentamp-api", "version": "1.0.0"}
 
 @app.get("/")
 async def root():
