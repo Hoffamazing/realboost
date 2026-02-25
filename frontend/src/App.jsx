@@ -24,7 +24,7 @@ function App() {
         textAlign: 'center',
         maxWidth: '600px'
       }}>
-        <h1 style={{ fontSize: '48px', marginBottom: '20px' }}>🏠 RealBoost AI</h1>
+        <h1 style={{ fontSize: '48px', marginBottom: '20px' }}>🏠 REagentAmp AI</h1>
         <p style={{ fontSize: '20px', marginBottom: '40px', opacity: 0.9 }}>
           AI-Powered Real Estate Marketing Platform
         </p>
