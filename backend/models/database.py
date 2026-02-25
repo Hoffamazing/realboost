@@ -61,9 +61,10 @@ class MessageRole(str, enum.Enum):
     system = "system"
 
 class SubscriptionPlan(str, enum.Enum):
-    starter = "starter"      # $99/mo — 1 agent, 2 platforms
-    pro = "pro"              # $249/mo — 1 agent, all platforms
-    team = "team"            # $499/mo — 5 agents, all platforms + team features
+    tier1 = "tier1"      # $1,000/mo
+    tier2 = "tier2"      # $2,500/mo
+    tier3 = "tier3"      # $5,000/mo
+    tier4 = "tier4"      # $15,000/mo
 
 class SubscriptionStatus(str, enum.Enum):
     active = "active"
